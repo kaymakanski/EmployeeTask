@@ -2,12 +2,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class EmployeeBuilder {
+    private int employeeId;
     private String name;
     private String email;
     private String phoneNumber;
-    private Date birthDate;
+    private String birthDate;
     private int salary;
+    private Task assignedTask;
     private ArrayList<Task> completedTasks;
+
+    public EmployeeBuilder setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+        return this;
+    }
 
     public EmployeeBuilder setName(String name) {
         this.name = name;
@@ -24,13 +31,18 @@ public class EmployeeBuilder {
         return this;
     }
 
-    public EmployeeBuilder setBirthDate(Date birthDate) {
+    public EmployeeBuilder setBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
     public EmployeeBuilder setSalary(int salary) {
         this.salary = salary;
+        return this;
+    }
+
+    public EmployeeBuilder setAssignedTask(Task assignedTask) {
+        this.assignedTask = assignedTask;
         return this;
     }
 
@@ -45,6 +57,6 @@ public class EmployeeBuilder {
     }
 
     public Employee getEmployee(){
-        return new Employee(name, email, phoneNumber, birthDate, salary, completedTasks);
+        return new Employee(employeeId, name, email, phoneNumber, birthDate, salary, assignedTask, completedTasks);
     }
 }

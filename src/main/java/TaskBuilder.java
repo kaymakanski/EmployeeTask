@@ -5,6 +5,12 @@ public class TaskBuilder {
     private String description;
     private Employee assignee;
     private Date dueDate;
+    private String status;
+
+    public TaskBuilder setStatus(String status) {
+        this.status = status;
+        return this;
+    }
 
     public TaskBuilder setTitle(String title) {
         this.title = title;
@@ -27,6 +33,6 @@ public class TaskBuilder {
     }
 
     public Task getTask(){
-        return new Task(title, description, assignee, dueDate);
+        return new Task(title, description, assignee, dueDate, status);
     }
 }
