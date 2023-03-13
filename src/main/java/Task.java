@@ -1,18 +1,24 @@
-import java.util.Date;
+import java.sql.Date;
 
 public class Task {
+    private int taskId;
     private String title;
     private String description;
     private Employee assignee;
     private Date dueDate;
     private String status;
 
-    public Task(String title, String description, Employee assignee, Date dueDate, String status) {
+    public Task(int taskId, String title, String description, Employee assignee, Date dueDate, String status) {
+        this.taskId = taskId;
         this.title = title;
         this.description = description;
         this.assignee = assignee;
         this.dueDate = dueDate;
         this.status = status;
+    }
+
+    public int getTaskId() {
+        return taskId;
     }
 
     public String getTitle() {

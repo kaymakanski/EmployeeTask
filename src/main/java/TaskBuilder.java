@@ -1,11 +1,17 @@
-import java.util.Date;
+import java.sql.Date;
 
 public class TaskBuilder {
+    private int taskId;
     private String title;
     private String description;
     private Employee assignee;
     private Date dueDate;
     private String status;
+
+    public TaskBuilder setTaskId(int taskId) {
+        this.taskId = taskId;
+        return this;
+    }
 
     public TaskBuilder setStatus(String status) {
         this.status = status;
@@ -33,6 +39,6 @@ public class TaskBuilder {
     }
 
     public Task getTask(){
-        return new Task(title, description, assignee, dueDate, status);
+        return new Task(taskId, title, description, assignee, dueDate, status);
     }
 }

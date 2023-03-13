@@ -2,20 +2,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDAO {
-    private Connection connection = null;
+    private final Connection connection = DatabaseConnector.connect();
     private final EmployeeBuilder employeeBuilder = new EmployeeBuilder();
-
-
-    public void connect() {
-        try {
-            String url = "jdbc:mysql://localhost:3306/employee_task";
-            String username = "root";
-            String password = "root";
-            connection = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public Employee getEmployee(int id) {
         employeeBuilder.setEmployeeId(id);

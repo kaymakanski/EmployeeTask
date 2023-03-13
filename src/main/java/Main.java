@@ -33,7 +33,7 @@ public class Main {
         Employee employee = employeeBuilder.getEmployee();*/
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.connect();
+        TaskDAO taskDAO = new TaskDAO();
 
         /*Employee employee1 = employeeDAO.getEmployee(2);
         System.out.println(employee1.getName());
@@ -48,5 +48,7 @@ public class Main {
 
         employeeDAO.updateEmployee(2, "name", "Johny Walker");
         System.out.println(employeeDAO.getEmployee(2).getName());
+
+        taskDAO.deleteTask(4);
     }
 }
