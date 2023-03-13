@@ -16,7 +16,7 @@ public class EmployeeDAO {
             employeeBuilder.setEmail(resultSet.getString("email"));
             employeeBuilder.setPhoneNumber(resultSet.getString("phonenumber"));
             employeeBuilder.setSalary(resultSet.getInt("salary"));
-            employeeBuilder.setBirthDate(resultSet.getString("birthdate"));
+            employeeBuilder.setBirthDate(resultSet.getDate("birthdate"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -34,7 +34,7 @@ public class EmployeeDAO {
             employeeBuilder.setEmail(resultSet.getString("email"));
             employeeBuilder.setPhoneNumber(resultSet.getString("phonenumber"));
             employeeBuilder.setSalary(resultSet.getInt("salary"));
-            employeeBuilder.setBirthDate(resultSet.getString("birthdate"));
+            employeeBuilder.setBirthDate(resultSet.getDate("birthdate"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +54,7 @@ public class EmployeeDAO {
                 employeeBuilder.setEmail(resultSet.getString("email"));
                 employeeBuilder.setPhoneNumber(resultSet.getString("phonenumber"));
                 employeeBuilder.setSalary(resultSet.getInt("salary"));
-                employeeBuilder.setBirthDate(resultSet.getString("birthdate"));
+                employeeBuilder.setBirthDate(resultSet.getDate("birthdate"));
                 allEmployees.add(employeeBuilder.getEmployee());
             }
         } catch (SQLException e) {
@@ -73,7 +73,7 @@ public class EmployeeDAO {
             statement.setString(3, employee.getEmail());
             statement.setString(4, employee.getPhoneNumber());
             statement.setInt(5, employee.getSalary());
-            statement.setString(6, employee.getBirthDate());
+            statement.setDate(6, employee.getBirthDate());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -113,7 +113,7 @@ public class EmployeeDAO {
     }
 
     public void deleteEmployee(String name){
-        String query = "delete from employee where name=" + name;
+        String query = "delete from employee where name='" + name +"'";
         PreparedStatement statement;
         try {
             statement = connection.prepareStatement(query);

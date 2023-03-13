@@ -1,12 +1,12 @@
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EmployeeBuilder {
     private int employeeId;
     private String name;
     private String email;
     private String phoneNumber;
-    private String birthDate;
+    private Date birthDate;
     private int salary;
     private Task assignedTask;
     private ArrayList<Task> completedTasks;
@@ -31,7 +31,7 @@ public class EmployeeBuilder {
         return this;
     }
 
-    public EmployeeBuilder setBirthDate(String birthDate) {
+    public EmployeeBuilder setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
         return this;
     }

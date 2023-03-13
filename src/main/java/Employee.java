@@ -1,17 +1,17 @@
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Employee {
     private int employeeId;
     private String name;
     private String email;
     private String phoneNumber;
-    private String birthDate;
+    private Date birthDate;
     private int salary;
     private Task assignedTask;
     private ArrayList<Task> completedTasks;
 
-    public Employee(int employeeId, String name, String email, String phoneNumber, String birthDate, int salary, Task assignedTask, ArrayList<Task> completedTasks) {
+    public Employee(int employeeId, String name, String email, String phoneNumber, Date birthDate, int salary, Task assignedTask, ArrayList<Task> completedTasks) {
         this.employeeId = employeeId;
         this.name = name;
         this.email = email;
@@ -42,7 +42,7 @@ public class Employee {
         return phoneNumber;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 

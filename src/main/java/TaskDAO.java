@@ -108,7 +108,7 @@ public class TaskDAO {
         }
     }
     public void deleteTask(String title){
-        String query = "delete from task where title=" + title;
+        String query = "delete from task where title='" + title + "'";
         PreparedStatement statement;
         try {
             statement = connection.prepareStatement(query);
