@@ -41,10 +41,12 @@ public class Main {
 
         employeeDAO.deleteEmployee(5);*/
 
-        ArrayList<Employee> allEmployees = employeeDAO.getAllEmployees();
+       /* ArrayList<Employee> allEmployees = employeeDAO.getAllEmployees();
         for (Employee e : allEmployees){
             System.out.println(e.getName() + " " + e.getEmail() + " " + e.getPhoneNumber() + " " + e.getSalary());
-        }
+        }*/
 
+        employeeDAO.updateEmployee(2, "name", "Johny Walker");
+        System.out.println(employeeDAO.getEmployee(2).getName());
     }
 }

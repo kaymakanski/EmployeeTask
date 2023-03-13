@@ -2,15 +2,15 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDAO {
-    String url = "jdbc:mysql://localhost:3306/employee_task";
-    String username = "root";
-    String password = "root";
-    Connection connection = null;
-    EmployeeBuilder employeeBuilder = new EmployeeBuilder();
+    private Connection connection = null;
+    private final EmployeeBuilder employeeBuilder = new EmployeeBuilder();
 
 
     public void connect() {
         try {
+            String url = "jdbc:mysql://localhost:3306/employee_task";
+            String username = "root";
+            String password = "root";
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -86,6 +86,27 @@ public class EmployeeDAO {
             statement.setString(4, employee.getPhoneNumber());
             statement.setInt(5, employee.getSalary());
             statement.setString(6, employee.getBirthDate());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateEmployee(int id, String columnToUpdate, String newValue){
+        String query = "update employee set " + columnToUpdate + "='" + newValue + "' where employee_id=" + id;
+        PreparedStatement statement;
+        try {
+            statement = connection.prepareStatement(query);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateEmployee(int id, String columnToUpdate, int newValue){
+        String query = "update employee set " + columnToUpdate + "='" + newValue + "' where employee_id=" + id;
+        PreparedStatement statement;
+        try {
+            statement = connection.prepareStatement(query);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
